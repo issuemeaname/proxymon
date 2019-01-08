@@ -7,13 +7,14 @@ from bot.token import TOKEN
 
 class Proxymon(commands.Bot):
     def __init__(self):
-        self.owners = OWNERS
+        pass
 
     async def on_connect(self, ctx):
         pass
 
     async def on_ready(self, ctx):
-        pass
+        # self.owners is now a list of discord.Members
+        self.owners = [self.get_user(id) for id in OWNERS]
 
 
 proxymon = Proxymon()
